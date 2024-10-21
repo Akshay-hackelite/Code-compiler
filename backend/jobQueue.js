@@ -3,6 +3,8 @@ const Queue = require("bull");
 const Job = require("./models/Job");
 const { executeCpp } = require("./executeCpp");
 const { executePy } = require("./executePy");
+const {executeC}=require("./executeC");
+const {executeJava}=require("./executeJava")
 
 const jobQueue = new Queue("job-runner-queue");
 const NUM_WORKERS = 5;
@@ -17,9 +19,13 @@ jobQueue.process(NUM_WORKERS, async ({ data }) => {
     let output;
     job["startedAt"] = new Date();
     if (job.language === "cpp") {
-      output = await executeCpp(job.filepath);
+      output = await executeCpp(job.filepath,job.inputFilePath);
     } else if (job.language === "py") {
-      output = await executePy(job.filepath);
+      output = await executePy(job.filepath,job.inputFilePath);
+    }else if(job.language === "c"){
+      output = await executeC(job.filepath,job.inputFilePath);
+    }else if(job.language === "java"){
+      output = await executeJava(job.filepath,job.inputFilePath);
     }
     job["completedAt"] = new Date();
     job["output"] = output;

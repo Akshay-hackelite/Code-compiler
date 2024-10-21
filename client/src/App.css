@@ -1,34 +1,208 @@
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+
+/* Preview box (code preview) */
+.head{
+  font-size: 32px;
+  font-weight: bold;
+  font-family: 'Poppins';
+  margin-bottom: 35px;
+  margin-top: 2px;
+  background: linear-gradient(45deg, #1d2671, #c33764);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 4px 20px rgba(0,0,0,0.3);
+
+
+
+}
+.head span{
+  
+    font-weight: bold;
+    padding: 1px;
+   
+   
+    text-transform: uppercase; /* All caps for a strong look */
+  
+    position: relative;
+    z-index: 1;
+
+
+
+    -webkit-background-clip: text;
+    color: transparent;
+  
+}
+.compile{
+  background: linear-gradient(45deg, #ff7e5f, #feb47b);
+
+}
+.it{
+  background: linear-gradient(45deg, #2c0753, #0541aad7);
+
+
+}
+.preview {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  background: #ded9d9;
+  color: #143106;
+  font-family: monospace;
+  white-space: pre-wrap; 
+  overflow-y: auto; 
+  overflow-x: auto; 
+  max-height: 500px;
+  width: 130px; 
+  font-size: 6px; 
+  line-height: 1.5; 
+  margin-top: 10px;
+  position: absolute;
+  right: 10px;
+  top:-6px; 
+  z-index: 10;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.sub {
+  
+  background-color: #0E9F6E;
+  color: black;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.5); /* Button shadow */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  position: relative;
+  left: -948px;
+  top: -355px;
+  width: 80.27px;
+  height: 45.4922px;
+  transform: translate(204.832px, 0px);
+  will-change: top, left;
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+/* Textarea and Input box styling */
+textarea, input[type="file"] {
+  width: 100%; /* Full width */
+  max-width: 500px; /* Max width to control larger screens */
+  padding: 12px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #282828; /* Dark background */
+  
+  color: #f9f9f9;
+  transition: all 0.3s ease; /* Smooth transition for hover/focus effect */
 }
 
-.App-link {
-  color: #61dafb;
+textarea:focus, input[type="file"]:focus {
+  outline: none;
+  border-color: #3b82f6; /* Blue border on focus */
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5); /* Glowing effect on focus */
 }
 
-@keyframes App-logo-spin {
+/* Fade-in animation */
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(-20px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+textarea, input[type="file"], .sub {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* General page styling */
+.App {
+  font-family: Arial, sans-serif;
+  padding: 0px 10px;
+  background-color: #1e1e1e;
+}
+
+.compiler-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 12px;
+}
+
+.code-editor {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #282c34;
+  color: white;
+  height: 100%;
+  position: relative;
+  left: -15px;
+  top: 47px;
+  transition: none;
+}
+
+.code-input {
+  background-color: #1e1e1e;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+}
+
+textarea {
+  resize: none;
+}
+
+/* Input/Output section styling */
+.io-section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  
+}
+.io-section label{
+ color:white;
+ padding: 0px;
+
+}
+.std{
+  font-weight: 300;
+  margin-top: 20px;
+
+}
+.output-section {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+
+  padding: 10px;
+  position: relative;
+  left: 5px;
+  top: 0px;
+  height: 200px;
+  overflow-y: auto;
+  overflow-x: auto;
+
+}
+
+/* Styling for code output */
+pre {
+  background-color: #1e1e1e;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: "Courier New", Courier, monospace;
+  overflow-x: scroll;
 }
