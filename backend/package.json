@@ -4,9 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node scripts/start.js local",
+    "start:docker": "node scripts/start.js docker",
     "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --test test/*.test.js",
+    "start:local": "node scripts/start.js local",
+    "start:redis": "QUEUE_MODE=redis node index.js",
+    "runner:build": "docker build -t compileit-runner -f runner/Dockerfile .",
+    "test:redis": "node test/redis.integration.js",
+    "test:docker": "node test/docker.integration.js",
+    "worker": "node worker.js",
+    "test:recovery": "node test/recovery.integration.js",
+    "benchmark": "node benchmarks/load.js"
   },
   "author": "",
   "license": "ISC",

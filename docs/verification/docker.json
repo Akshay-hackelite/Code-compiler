@@ -1,0 +1,26 @@
+{
+  "verifiedAt": "2026-10-12T19:43:24.699Z",
+  "image": "compileit-runner",
+  "checks": [
+    "cpp: isolated compilation/execution and test comparison passed.",
+    "c: isolated compilation/execution and test comparison passed.",
+    "py: isolated compilation/execution and test comparison passed.",
+    "java: isolated compilation/execution and test comparison passed.",
+    "Non-root user, read-only root filesystem, disabled network, no Docker socket, and writable temporary workspace verified.",
+    "Active cancellation removes its container; CPU/memory/PID/capability limits and absence of host mounts inspected on a live run.",
+    "An infinite loop hits the five-second deadline and its container is removed.",
+    "Output flooding is stopped at 128 KB.",
+    "Temporary disk writes are constrained by the 64 MB tmpfs.",
+    "Unbounded memory allocation is terminated by the memory limit.",
+    "Process fan-out reaches the 64-process cap and is rejected."
+  ],
+  "limits": {
+    "memoryMB": 384,
+    "cpus": 1,
+    "pids": 64,
+    "tmpfsMB": 64,
+    "executionDeadlineMs": 5000,
+    "outputKB": 128
+  },
+  "notes": "These tests verify the configured boundaries; they are not a security audit or a proof against container escape."
+}

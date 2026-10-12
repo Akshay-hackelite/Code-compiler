@@ -1,0 +1,19 @@
+{
+  "verifiedAt": "2026-10-12T18:49:16.422Z",
+  "executionMode": "local",
+  "checks": [
+    "Eight concurrent request retries create one MongoDB job; key reuse with changed payload returns 409.",
+    "A SIGKILL during an active claim is recovered by a new worker; two attempts commit one result.",
+    "Duplicate queue delivery after completion does not rerun the program or rewrite its result.",
+    "Concurrent duplicate deliveries across two worker processes produce one claim and one committed result.",
+    "A pending MongoDB submission with no Redis entry is enqueued by reconciliation.",
+    "A stale worker cannot overwrite a result owned by a newer execution token."
+  ],
+  "deliverySemantics": "At least once; one accepted result per job. A crash may execute a program again. External side effects are not exactly-once.",
+  "testWorkerTiming": {
+    "leaseMs": 1200,
+    "heartbeatMs": 200,
+    "bullLockMs": 1000,
+    "stalledIntervalMs": 500
+  }
+}

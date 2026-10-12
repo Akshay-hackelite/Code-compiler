@@ -1,0 +1,780 @@
+{
+  "measuredAt": "2026-10-12T19:27:49.384Z",
+  "executionMode": "local",
+  "workload": "Python: sleep 100ms, sum(range(10000)), print result; one program per job",
+  "environment": {
+    "node": "v20.16.0",
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpuModel": "Apple M2",
+    "logicalCpus": 8,
+    "totalMemoryGB": 8
+  },
+  "methodology": "Closed-loop HTTP clients: each waits for completion before the next request; fresh API/queue per scenario, real Redis/MongoDB, 50ms polling, production 30/min/IP limit enabled, no warm-up. End-to-end covers admission/queue/execute/observed completion; separate server timestamps exclude polling delay. This is one local sample per worker count, not a capacity guarantee.",
+  "scenarios": [
+    {
+      "workerProcesses": 1,
+      "slotsPerWorker": 1,
+      "clientConcurrency": 8,
+      "submitted": 30,
+      "accepted": 30,
+      "successful": 30,
+      "rejected": 0,
+      "requestErrors": 0,
+      "failedAccepted": 0,
+      "failureRatePercent": 0,
+      "overallUnsuccessfulPercent": 0,
+      "wallSeconds": 4.3481186670000005,
+      "successfulJobsPerSecond": 6.899535706714878,
+      "admissionMs": {
+        "count": 30,
+        "mean": 49.37923046666669,
+        "p50": 7.034458000000086,
+        "p95": 179.41287499999999,
+        "p99": 197.72945900000002
+      },
+      "observedEndToEndMs": {
+        "count": 30,
+        "mean": 1023.1589887666667,
+        "p50": 1070.721,
+        "p95": 1204.138,
+        "p99": 1378.77525
+      },
+      "serverEndToEndMs": {
+        "count": 30,
+        "mean": 954.5333333333333,
+        "p50": 1030,
+        "p95": 1104,
+        "p99": 1154
+      },
+      "queueWaitMs": {
+        "count": 30,
+        "mean": 818.6,
+        "p50": 895,
+        "p95": 973,
+        "p99": 1015
+      },
+      "executionMs": {
+        "count": 30,
+        "mean": 132.43333333333334,
+        "p50": 128,
+        "p95": 164,
+        "p99": 203
+      },
+      "requests": [
+        {
+          "index": 0,
+          "status": "success",
+          "admissionMs": 197.72945900000002,
+          "observedLatencyMs": 964.3027920000001,
+          "serverLatencyMs": 817,
+          "queueWaitMs": 688,
+          "executionMs": 126,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 1,
+          "status": "success",
+          "admissionMs": 160.20158400000003,
+          "observedLatencyMs": 712.5008750000001,
+          "serverLatencyMs": 548,
+          "queueWaitMs": 407,
+          "executionMs": 139,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 2,
+          "status": "success",
+          "admissionMs": 161.89808300000004,
+          "observedLatencyMs": 824.532875,
+          "serverLatencyMs": 664,
+          "queueWaitMs": 533,
+          "executionMs": 126,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 3,
+          "status": "success",
+          "admissionMs": 149.532875,
+          "observedLatencyMs": 408.2351249999999,
+          "serverLatencyMs": 246,
+          "queueWaitMs": 8,
+          "executionMs": 203,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 4,
+          "status": "success",
+          "admissionMs": 155.91037500000004,
+          "observedLatencyMs": 537.5283750000001,
+          "serverLatencyMs": 382,
+          "queueWaitMs": 251,
+          "executionMs": 128,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 5,
+          "status": "success",
+          "admissionMs": 171.70166600000005,
+          "observedLatencyMs": 1204.138,
+          "serverLatencyMs": 1050,
+          "queueWaitMs": 917,
+          "executionMs": 128,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 6,
+          "status": "success",
+          "admissionMs": 168.60904100000005,
+          "observedLatencyMs": 1090.729375,
+          "serverLatencyMs": 916,
+          "queueWaitMs": 790,
+          "executionMs": 124,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 7,
+          "status": "success",
+          "admissionMs": 179.41287499999999,
+          "observedLatencyMs": 1378.77525,
+          "serverLatencyMs": 1154,
+          "queueWaitMs": 1015,
+          "executionMs": 134,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 8,
+          "status": "success",
+          "admissionMs": 3.393332999999984,
+          "observedLatencyMs": 1089.5383749999999,
+          "serverLatencyMs": 1052,
+          "queueWaitMs": 922,
+          "executionMs": 125,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 9,
+          "status": "success",
+          "admissionMs": 4.180124999999862,
+          "observedLatencyMs": 1067.871083,
+          "serverLatencyMs": 1048,
+          "queueWaitMs": 924,
+          "executionMs": 122,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 10,
+          "status": "success",
+          "admissionMs": 4.628292000000101,
+          "observedLatencyMs": 1057.6057500000002,
+          "serverLatencyMs": 1003,
+          "queueWaitMs": 877,
+          "executionMs": 125,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 11,
+          "status": "success",
+          "admissionMs": 5.543415999999979,
+          "observedLatencyMs": 1059.170333,
+          "serverLatencyMs": 1017,
+          "queueWaitMs": 890,
+          "executionMs": 126,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 12,
+          "status": "success",
+          "admissionMs": 5.7806250000001,
+          "observedLatencyMs": 1062.0797080000002,
+          "serverLatencyMs": 1038,
+          "queueWaitMs": 912,
+          "executionMs": 123,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 13,
+          "status": "success",
+          "admissionMs": 7.034458000000086,
+          "observedLatencyMs": 1052.782833,
+          "serverLatencyMs": 1006,
+          "queueWaitMs": 878,
+          "executionMs": 126,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 14,
+          "status": "success",
+          "admissionMs": 5.09920800000009,
+          "observedLatencyMs": 1052.4373750000002,
+          "serverLatencyMs": 1023,
+          "queueWaitMs": 896,
+          "executionMs": 126,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 15,
+          "status": "success",
+          "admissionMs": 2.4238750000004075,
+          "observedLatencyMs": 982.1751250000002,
+          "serverLatencyMs": 978,
+          "queueWaitMs": 850,
+          "executionMs": 127,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 16,
+          "status": "success",
+          "admissionMs": 7.898834000000079,
+          "observedLatencyMs": 1030.218542,
+          "serverLatencyMs": 987,
+          "queueWaitMs": 862,
+          "executionMs": 124,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 17,
+          "status": "success",
+          "admissionMs": 9.310333000000355,
+          "observedLatencyMs": 1097.7546660000003,
+          "serverLatencyMs": 1045,
+          "queueWaitMs": 879,
+          "executionMs": 164,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 18,
+          "status": "success",
+          "admissionMs": 11.273499999999785,
+          "observedLatencyMs": 1041.7945,
+          "serverLatencyMs": 1023,
+          "queueWaitMs": 885,
+          "executionMs": 136,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 19,
+          "status": "success",
+          "admissionMs": 5.250833000000057,
+          "observedLatencyMs": 1091.1798330000001,
+          "serverLatencyMs": 1042,
+          "queueWaitMs": 913,
+          "executionMs": 127,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 20,
+          "status": "success",
+          "admissionMs": 5.514291999999841,
+          "observedLatencyMs": 1086.2821250000002,
+          "serverLatencyMs": 1075,
+          "queueWaitMs": 933,
+          "executionMs": 139,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 21,
+          "status": "success",
+          "admissionMs": 4.93120799999997,
+          "observedLatencyMs": 1098.184083,
+          "serverLatencyMs": 1060,
+          "queueWaitMs": 924,
+          "executionMs": 133,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 22,
+          "status": "success",
+          "admissionMs": 4.16924999999992,
+          "observedLatencyMs": 1094.002125,
+          "serverLatencyMs": 1081,
+          "queueWaitMs": 951,
+          "executionMs": 128,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 23,
+          "status": "success",
+          "admissionMs": 8.241417000000183,
+          "observedLatencyMs": 1147.6082080000006,
+          "serverLatencyMs": 1104,
+          "queueWaitMs": 973,
+          "executionMs": 130,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 24,
+          "status": "success",
+          "admissionMs": 12.936457999999675,
+          "observedLatencyMs": 1091.1758329999998,
+          "serverLatencyMs": 1072,
+          "queueWaitMs": 947,
+          "executionMs": 123,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 25,
+          "status": "success",
+          "admissionMs": 7.238665999999739,
+          "observedLatencyMs": 1076.0045409999998,
+          "serverLatencyMs": 1026,
+          "queueWaitMs": 895,
+          "executionMs": 129,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 26,
+          "status": "success",
+          "admissionMs": 3.1024999999999636,
+          "observedLatencyMs": 1077.352542,
+          "serverLatencyMs": 1057,
+          "queueWaitMs": 923,
+          "executionMs": 132,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 27,
+          "status": "success",
+          "admissionMs": 4.359875000000102,
+          "observedLatencyMs": 1073.188208,
+          "serverLatencyMs": 1030,
+          "queueWaitMs": 895,
+          "executionMs": 133,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 28,
+          "status": "success",
+          "admissionMs": 10.841208000000279,
+          "observedLatencyMs": 1074.900208,
+          "serverLatencyMs": 1055,
+          "queueWaitMs": 922,
+          "executionMs": 130,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 29,
+          "status": "success",
+          "admissionMs": 3.2292499999998654,
+          "observedLatencyMs": 1070.721,
+          "serverLatencyMs": 1037,
+          "queueWaitMs": 898,
+          "executionMs": 137,
+          "attempts": 1,
+          "outputCorrect": true
+        }
+      ]
+    },
+    {
+      "workerProcesses": 2,
+      "slotsPerWorker": 1,
+      "clientConcurrency": 8,
+      "submitted": 30,
+      "accepted": 30,
+      "successful": 30,
+      "rejected": 0,
+      "requestErrors": 0,
+      "failedAccepted": 0,
+      "failureRatePercent": 0,
+      "overallUnsuccessfulPercent": 0,
+      "wallSeconds": 2.0810122089999994,
+      "successfulJobsPerSecond": 14.41606150615333,
+      "admissionMs": {
+        "count": 30,
+        "mean": 7.173123599999963,
+        "p50": 6.104832999999417,
+        "p95": 13.565416999999798,
+        "p99": 15.972374999999374
+      },
+      "observedEndToEndMs": {
+        "count": 30,
+        "mean": 496.1684972666666,
+        "p50": 545.5548330000001,
+        "p95": 585.0822090000001,
+        "p99": 587.6519159999998
+      },
+      "serverEndToEndMs": {
+        "count": 30,
+        "mean": 463.46666666666664,
+        "p50": 502,
+        "p95": 536,
+        "p99": 536
+      },
+      "queueWaitMs": {
+        "count": 30,
+        "mean": 330.8333333333333,
+        "p50": 369,
+        "p95": 402,
+        "p99": 403
+      },
+      "executionMs": {
+        "count": 30,
+        "mean": 129.46666666666667,
+        "p50": 130,
+        "p95": 132,
+        "p99": 133
+      },
+      "requests": [
+        {
+          "index": 0,
+          "status": "success",
+          "admissionMs": 10.516375000000153,
+          "observedLatencyMs": 180.19750000000022,
+          "serverLatencyMs": 142,
+          "queueWaitMs": 6,
+          "executionMs": 128,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 1,
+          "status": "success",
+          "admissionMs": 9.545791999999892,
+          "observedLatencyMs": 179.9747500000003,
+          "serverLatencyMs": 142,
+          "queueWaitMs": 5,
+          "executionMs": 130,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 2,
+          "status": "success",
+          "admissionMs": 10.534750000000713,
+          "observedLatencyMs": 289.55612500000007,
+          "serverLatencyMs": 274,
+          "queueWaitMs": 144,
+          "executionMs": 127,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 3,
+          "status": "success",
+          "admissionMs": 10.594334000000345,
+          "observedLatencyMs": 289.8484589999998,
+          "serverLatencyMs": 276,
+          "queueWaitMs": 144,
+          "executionMs": 128,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 4,
+          "status": "success",
+          "admissionMs": 12.389083000000028,
+          "observedLatencyMs": 449.1014580000001,
+          "serverLatencyMs": 403,
+          "queueWaitMs": 274,
+          "executionMs": 126,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 5,
+          "status": "success",
+          "admissionMs": 12.94079199999942,
+          "observedLatencyMs": 449.9569999999994,
+          "serverLatencyMs": 403,
+          "queueWaitMs": 274,
+          "executionMs": 127,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 6,
+          "status": "success",
+          "admissionMs": 13.565416999999798,
+          "observedLatencyMs": 559.3779999999997,
+          "serverLatencyMs": 536,
+          "queueWaitMs": 402,
+          "executionMs": 131,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 7,
+          "status": "success",
+          "admissionMs": 15.972374999999374,
+          "observedLatencyMs": 559.7197919999999,
+          "serverLatencyMs": 535,
+          "queueWaitMs": 403,
+          "executionMs": 129,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 8,
+          "status": "success",
+          "admissionMs": 4.808125000000473,
+          "observedLatencyMs": 549.6086249999998,
+          "serverLatencyMs": 501,
+          "queueWaitMs": 367,
+          "executionMs": 131,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 9,
+          "status": "success",
+          "admissionMs": 4.657250000000204,
+          "observedLatencyMs": 549.6002079999998,
+          "serverLatencyMs": 501,
+          "queueWaitMs": 367,
+          "executionMs": 131,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 10,
+          "status": "success",
+          "admissionMs": 6.27599999999984,
+          "observedLatencyMs": 548.7142089999998,
+          "serverLatencyMs": 526,
+          "queueWaitMs": 394,
+          "executionMs": 130,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 11,
+          "status": "success",
+          "admissionMs": 5.704374999999345,
+          "observedLatencyMs": 546.6579999999994,
+          "serverLatencyMs": 525,
+          "queueWaitMs": 393,
+          "executionMs": 130,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 12,
+          "status": "success",
+          "admissionMs": 3.4267089999993914,
+          "observedLatencyMs": 549.7137089999997,
+          "serverLatencyMs": 502,
+          "queueWaitMs": 369,
+          "executionMs": 130,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 13,
+          "status": "success",
+          "admissionMs": 2.6991250000000946,
+          "observedLatencyMs": 549.9502089999996,
+          "serverLatencyMs": 502,
+          "queueWaitMs": 369,
+          "executionMs": 130,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 14,
+          "status": "success",
+          "admissionMs": 6.130457999999635,
+          "observedLatencyMs": 545.5548330000001,
+          "serverLatencyMs": 526,
+          "queueWaitMs": 392,
+          "executionMs": 132,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 15,
+          "status": "success",
+          "admissionMs": 6.104832999999417,
+          "observedLatencyMs": 546.0948330000001,
+          "serverLatencyMs": 526,
+          "queueWaitMs": 392,
+          "executionMs": 132,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 16,
+          "status": "success",
+          "admissionMs": 4.969165999999859,
+          "observedLatencyMs": 541.8267500000002,
+          "serverLatencyMs": 495,
+          "queueWaitMs": 360,
+          "executionMs": 132,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 17,
+          "status": "success",
+          "admissionMs": 4.817083000000821,
+          "observedLatencyMs": 542.6184580000008,
+          "serverLatencyMs": 492,
+          "queueWaitMs": 360,
+          "executionMs": 129,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 18,
+          "status": "success",
+          "admissionMs": 6.446707999999489,
+          "observedLatencyMs": 548.9689170000001,
+          "serverLatencyMs": 517,
+          "queueWaitMs": 388,
+          "executionMs": 127,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 19,
+          "status": "success",
+          "admissionMs": 5.806958000000122,
+          "observedLatencyMs": 547.6261249999998,
+          "serverLatencyMs": 519,
+          "queueWaitMs": 387,
+          "executionMs": 128,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 20,
+          "status": "success",
+          "admissionMs": 6.193457999999737,
+          "observedLatencyMs": 493.640625,
+          "serverLatencyMs": 488,
+          "queueWaitMs": 356,
+          "executionMs": 130,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 21,
+          "status": "success",
+          "admissionMs": 5.243916000000354,
+          "observedLatencyMs": 494.6662500000002,
+          "serverLatencyMs": 486,
+          "queueWaitMs": 358,
+          "executionMs": 125,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 22,
+          "status": "success",
+          "admissionMs": 6.9893330000004426,
+          "observedLatencyMs": 547.5884169999999,
+          "serverLatencyMs": 519,
+          "queueWaitMs": 384,
+          "executionMs": 132,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 23,
+          "status": "success",
+          "admissionMs": 6.776458999999704,
+          "observedLatencyMs": 546.9681250000003,
+          "serverLatencyMs": 519,
+          "queueWaitMs": 385,
+          "executionMs": 132,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 24,
+          "status": "success",
+          "admissionMs": 5.938083000000006,
+          "observedLatencyMs": 490.0913330000003,
+          "serverLatencyMs": 484,
+          "queueWaitMs": 355,
+          "executionMs": 125,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 25,
+          "status": "success",
+          "admissionMs": 5.535082999999759,
+          "observedLatencyMs": 543.2140829999998,
+          "serverLatencyMs": 485,
+          "queueWaitMs": 354,
+          "executionMs": 128,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 26,
+          "status": "success",
+          "admissionMs": 4.2311670000008235,
+          "observedLatencyMs": 535.8608750000003,
+          "serverLatencyMs": 506,
+          "queueWaitMs": 371,
+          "executionMs": 132,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 27,
+          "status": "success",
+          "admissionMs": 4.070958999999675,
+          "observedLatencyMs": 535.6231250000001,
+          "serverLatencyMs": 506,
+          "queueWaitMs": 373,
+          "executionMs": 129,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 28,
+          "status": "success",
+          "admissionMs": 6.953083000000333,
+          "observedLatencyMs": 587.6519159999998,
+          "serverLatencyMs": 536,
+          "queueWaitMs": 400,
+          "executionMs": 133,
+          "attempts": 1,
+          "outputCorrect": true
+        },
+        {
+          "index": 29,
+          "status": "success",
+          "admissionMs": 5.3564589999996315,
+          "observedLatencyMs": 585.0822090000001,
+          "serverLatencyMs": 532,
+          "queueWaitMs": 399,
+          "executionMs": 130,
+          "attempts": 1,
+          "outputCorrect": true
+        }
+      ]
+    }
+  ]
+}
