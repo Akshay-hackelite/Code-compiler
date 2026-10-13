@@ -1,6 +1,6 @@
 # CompileIt
 
-A self-hosted developer playground for C, C++, Python, and Java. React + CodeMirror on the frontend; Express, a bounded execution queue, and optional Bull / Redis / MongoDB on the backend. No paid APIs, subscriptions, or API keys.
+A self-hosted compiler playground for C, C++, Python, and Java. React + CodeMirror on the frontend; Express, a bounded execution queue, and optional Bull / Redis / MongoDB on the backend. No paid APIs, subscriptions, or API keys.
 
 ## What you can do
 
